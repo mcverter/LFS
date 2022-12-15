@@ -1,7 +1,8 @@
-#BASEDIR = ~/lfs-book
 #SYSDDIR = ~/lfs-systemd
 #DUMPDIR = ~/lfs-commands
 RENDERTMP = $(HOME)/tmp
+BASEDIR = $(HOME)/ComputerScienceKubuntu/LFS/documentation
+
 CHUNK_QUIET = 1
 ROOT_ID =
 SHELL = /bin/bash
@@ -23,12 +24,12 @@ ifneq ($(REV), sysv)
 endif
 
 ifeq ($(REV), sysv)
-  BASEDIR         ?= ~/lfs-book
+  BASEDIR         ?= /home/mcverter/ComputerScienceKubuntu/LFS/documentation  
   PDF_OUTPUT      ?= LFS-BOOK.pdf
   NOCHUNKS_OUTPUT ?= LFS-BOOK.html
   DUMPDIR         ?= ~/lfs-commands
 else
-  BASEDIR         ?= ~/lfs-systemd
+  BASEDIR         ?= /home/mcverter/ComputerScienceKubuntu/LFS/documentation 
   PDF_OUTPUT      ?= LFS-SYSD-BOOK.pdf
   NOCHUNKS_OUTPUT ?= LFS-SYSD-BOOK.html
   DUMPDIR         ?= ~/lfs-sysd-commands
@@ -42,7 +43,6 @@ book: validate profile-html
       --stringparam base.dir $(BASEDIR)/         \
       stylesheets/lfs-chunked.xsl                \
       $(RENDERTMP)/lfs-html.xml
-
 	@echo "Copying CSS code and images..."
 	$(Q)mkdir -p $(BASEDIR)/stylesheets
 	$(Q)cp stylesheets/lfs-xsl/*.css $(BASEDIR)/stylesheets
@@ -93,14 +93,24 @@ pdf: validate
 
 nochunks: validate profile-html
 	@echo "Generating non chunked XHTML file..."
+	@echo $(RENDERTMP)/lfs-html.xml
+	@chmod 755 $(RENDERTMP)/lfs-html.xml
+	@echo $(RENDERTMP)/lfs-html2.xml
+	@chmod 755 $(RENDERTMP)/lfs-html2.xml
+	@chmod 777 $(RENDERTMP)
+	@echo $(BASEDIR)/$(NOCHUNKS_OUTPUT)
+	@echo Rot Id $(ROOTID)
+	@echo R $(RENDERTMP)
 	$(Q)xsltproc --nonet                                \
                 --stringparam rootid "$(ROOT_ID)"      \
-                --output $(BASEDIR)/$(NOCHUNKS_OUTPUT) \
+                --output   /home/mcverter/ComputerScienceKubuntu/LFS/documentation/nochunks-no-no.html  \ 
                 stylesheets/lfs-nochunks.xsl           \
                 $(RENDERTMP)/lfs-html.xml
-#                $(RENDERTMP)/lfs-html2.xml
+                $(RENDERTMP)/lfs-html2.xml
 
 	@echo "Running Tidy..."
+	@echo "Running bleedy..."
+
 	$(Q)tidy -config tidy.conf $(BASEDIR)/$(NOCHUNKS_OUTPUT) || true
 
 	@echo "Running obfuscate.sh..."

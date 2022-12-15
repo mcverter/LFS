@@ -6,8 +6,10 @@ BLFSBOOK_DIR=$LFS_PROJECT_DIR/blfs
 
 DIRECTORY_DIR=$LFS_PROJECT_DIR/documentation
 HTML_DIR=$DIRECTORY_DIR/html
+NOCHUNKS_DIR=$DIRECTORY_DIR/nochunks
 NOCHUNKS_FILE=$DIRECTORY_DIR/nochunks.html
 TXT_DIR=$DIRECTORY_DIR/txt
+TXT_FILE=$DIRECTORY_DIR/lfs-book.txt
 
 if [ ! -e $DIRECTORY_DIR ]
 then
@@ -20,7 +22,12 @@ then
     mkdir $HTML_DIR
 fi
 
-touch NOCHUNKS_FILEnochunks.html
+if [ ! -e $NOCHUNKS_DIR ]
+then
+    mkdir $NOCHUNKS_DIR
+fi
+
+# touch nochunks.html
 
 if [ ! -e $TXT_DIR ]
 then
@@ -29,7 +36,7 @@ fi
 
 
 cd $LFSBOOK_DIR
-make BASEDIR=$HTML_DIR
+# make BASEDIR=$HTML_DIR
 make BASEDIR=$NOCHUNKSDIR nochunks
-lynx -dump $NOCHUNKSDIR > $TXT_DIR
+lynx -dump $NOCHUNKSDIR > $TXT_FILE
 
