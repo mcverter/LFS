@@ -5,6 +5,7 @@ bash --version | head -n1 | cut -d" " -f2-4
 MYSH=$(readlink -f /bin/sh)
 echo "/bin/sh -> $MYSH"
 echo $MYSH | grep -q bash || echo "ERROR: /bin/sh does not point to bash"
+echo $MYSH | grep -q dash && echo "SUCCESS: /bin/sh does point to dash"
 unset MYSH
 
 echo -n "Binutils: "; ld --version | head -n1 | cut -d" " -f3-
