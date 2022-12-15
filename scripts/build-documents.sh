@@ -1,19 +1,31 @@
 
 HOME_DIR=/home/mcverter
 LFS_PROJECT_DIR=$HOME_DIR/ComputerScienceKubuntu/LFS
-LFSBOOK_DIR=$LFS_PROJECT/lfs
-BLFSBOOK_DIR=$LFS_PROJECT/blfs
+LFSBOOK_DIR=$LFS_PROJECT_DIR/lfs
+BLFSBOOK_DIR=$LFS_PROJECT_DIR/blfs
 
-DIRECTORY_DIR=$LFS_PROJECTHOME_DIR/documentation
+DIRECTORY_DIR=$LFS_PROJECT_DIR/documentation
 HTML_DIR=$DIRECTORY_DIR/html
-NOCHUNKS_DIR=$DIRECTORY_DIR/nochunks
+NOCHUNKS_FILE=$DIRECTORY_DIR/nochunks.html
 TXT_DIR=$DIRECTORY_DIR/txt
 
-mkdir $DIRECTORY_DIR
-mkdir $HTML_DIR
-mkdir $NOCHUNKS_DIR
-mkdir $TXT_DIR
+if [ ! -e $DIRECTORY_DIR ]
+then
+    mkdir $DIRECTORY_DIR
+fi
 
+
+if [ ! -e $HTML_DIR ]
+then
+    mkdir $HTML_DIR
+fi
+
+touch NOCHUNKS_FILEnochunks.html
+
+if [ ! -e $TXT_DIR ]
+then
+    mkdir $TXT_DIR
+fi
 
 
 cd $LFSBOOK_DIR
