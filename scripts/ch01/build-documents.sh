@@ -39,7 +39,10 @@ cd $LFSBOOK_DIR
 # make BASEDIR=$HTML_DIR
 
 # echo NOCHUNKSDIR $NOCHUNKSDIR
-make BASEDIR=$NOCHUNKSDIR nochunks
+make BASEDIR=/home/mcverter/ComputerScienceKubuntu/LFS/documentation nochunks
+# make BASEDIR=$NOCHUNKSDIR nochunks
 # echo TXT_FILE $TXT_FILE
-lynx -dump $NOCHUNKSDIR > $TXT_FILE
+# lynx -dump $NOCHUNKSDIR > $TXT_FILE
 
+cd /home/mcverter/ComputerScienceKubuntu/LFS/documentatio
+lynx -dump nochunks/LFS-BOOK.html > txt/lfs-book.txt
