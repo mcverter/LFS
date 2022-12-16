@@ -1,6 +1,6 @@
 
 HOME_DIR=/home/mcverter
-LFS_PROJECT_DIR=$HOME_DIR/ComputerScienceKubuntu/LFS
+LFS_PROJECT_DIR=$HOME_DIR/LFS
 LFSBOOK_DIR=$LFS_PROJECT_DIR/lfs
 BLFSBOOK_DIR=$LFS_PROJECT_DIR/blfs
 
@@ -39,10 +39,11 @@ cd $LFSBOOK_DIR
 # make BASEDIR=$HTML_DIR
 
 # echo NOCHUNKSDIR $NOCHUNKSDIR
-make BASEDIR=/home/mcverter/ComputerScienceKubuntu/LFS/documentation nochunks
+make BASEDIR=/home/mcverter/LFS/documentation nochunks
 # make BASEDIR=$NOCHUNKSDIR nochunks
 # echo TXT_FILE $TXT_FILE
 # lynx -dump $NOCHUNKSDIR > $TXT_FILE
 
-cd /home/mcverter/ComputerScienceKubuntu/LFS/documentatio
-lynx -dump nochunks/LFS-BOOK.html > txt/lfs-book.txt
+cd /home/mcverter/LFS/documentation
+
+lynx -dump nochunks-no-no.html > txt/lfs-book.txt
