@@ -1,7 +1,7 @@
 #SYSDDIR = ~/lfs-systemd
 #DUMPDIR = ~/lfs-commands
 RENDERTMP = $(HOME)/tmp
-BASEDIR = $(HOME)/ComputerScienceKubuntu/LFS/documentation
+BASEDIR = $(HOME)/LFS/documentation
 
 CHUNK_QUIET = 1
 ROOT_ID =
@@ -24,12 +24,12 @@ ifneq ($(REV), sysv)
 endif
 
 ifeq ($(REV), sysv)
-  BASEDIR         ?= /home/mcverter/ComputerScienceKubuntu/LFS/documentation  
+  BASEDIR         ?= /home/mcverter/LFS/documentation  
   PDF_OUTPUT      ?= LFS-BOOK.pdf
   NOCHUNKS_OUTPUT ?= LFS-BOOK.html
   DUMPDIR         ?= ~/lfs-commands
 else
-  BASEDIR         ?= /home/mcverter/ComputerScienceKubuntu/LFS/documentation 
+  BASEDIR         ?= /home/mcverter/LFS/documentation 
   PDF_OUTPUT      ?= LFS-SYSD-BOOK.pdf
   NOCHUNKS_OUTPUT ?= LFS-SYSD-BOOK.html
   DUMPDIR         ?= ~/lfs-sysd-commands
@@ -101,12 +101,9 @@ nochunks: validate profile-html
 	@echo $(BASEDIR)/$(NOCHUNKS_OUTPUT)
 	@echo Rot Id $(ROOTID)
 	@echo R $(RENDERTMP)
-	$(Q)xsltproc --nonet                                \
-                --stringparam rootid "$(ROOT_ID)"      \
-                --output   /home/mcverter/ComputerScienceKubuntu/LFS/documentation/nochunks-no-no.html  \ 
-                stylesheets/lfs-nochunks.xsl           \
-                $(RENDERTMP)/lfs-html.xml
-                $(RENDERTMP)/lfs-html2.xml
+
+	$(Q)xsltproc --nonet   --stringparam rootid "$(ROOT_ID)"   --output   /home/mcverter/LFS/documentation/LFS-BOOK.html                stylesheets/lfs-nochunks.xsl                    $(RENDERTMP)/lfs-html.xml
+#                $(RENDERTMP)/lfs-html2.xml
 
 	@echo "Running Tidy..."
 	@echo "Running bleedy..."
