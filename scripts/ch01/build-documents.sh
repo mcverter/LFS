@@ -7,7 +7,7 @@ BLFSBOOK_DIR=$LFS_PROJECT_DIR/blfs
 DIRECTORY_DIR=$LFS_PROJECT_DIR/documentation
 HTML_DIR=$DIRECTORY_DIR/html
 NOCHUNKS_DIR=$DIRECTORY_DIR/nochunks
-NOCHUNKS_FILE=$DIRECTORY_DIR/nochunks.html
+NOCHUNKS_FILE=$NOCHUNKS_DIR/LFS-BOOK.html
 TXT_DIR=$DIRECTORY_DIR/txt
 TXT_FILE=$DIRECTORY_DIR/lfs-book.txt
 
@@ -36,14 +36,11 @@ fi
 
 
 cd $LFSBOOK_DIR
-# make BASEDIR=$HTML_DIR
+make BASEDIR=$HTML_DIR
 
-# echo NOCHUNKSDIR $NOCHUNKSDIR
-make BASEDIR=$HOME/LFS/documentation nochunks
-# make BASEDIR=$NOCHUNKSDIR nochunks
-# echo TXT_FILE $TXT_FILE
-# lynx -dump $NOCHUNKSDIR > $TXT_FILE
+echo " NOCHUNKS_DIR " $NOCHUNKS_DIR
+# make BASEDIR=$HOME/LFS/documentation nochunks
+make BASEDIR=$NOCHUNKS_DIR nochunks
+echo " TXT_FILE "  $TXT_FILE
+lynx -dump $NOCHUNKS_FILE > $TXT_FILE
 
-cd $HOME/LFS/documentation
-
-lynx -dump nochunks-no-no.html > txt/lfs-book.txt

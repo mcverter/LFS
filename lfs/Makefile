@@ -98,11 +98,11 @@ nochunks: validate profile-html
 	@echo $(RENDERTMP)/lfs-html2.xml
 	@chmod 755 $(RENDERTMP)/lfs-html2.xml
 	@chmod 777 $(RENDERTMP)
-	@echo $(BASEDIR)/$(NOCHUNKS_OUTPUT)
+	@echo output dir $(BASEDIR)/$(NOCHUNKS_OUTPUT)
 	@echo Rot Id $(ROOTID)
 	@echo R $(RENDERTMP)
 
-	$(Q)xsltproc --nonet   --stringparam rootid "$(ROOT_ID)"   --output   /home/mcverter/LFS/documentation/LFS-BOOK.html                stylesheets/lfs-nochunks.xsl                    $(RENDERTMP)/lfs-html.xml
+	$(Q)xsltproc --nonet   --stringparam rootid "$(ROOT_ID)"   --output   $(BASEDIR)/$(NOCHUNKS_OUTPUT) stylesheets/lfs-nochunks.xsl                    $(RENDERTMP)/lfs-html.xml
 #                $(RENDERTMP)/lfs-html2.xml
 
 	@echo "Running Tidy..."
