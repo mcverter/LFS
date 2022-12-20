@@ -6,10 +6,10 @@ if [ $WHO != "lfs" ] ; then
 fi
 
 INSTALL_DIR=$LFS/sources
-cd INSTALL_DIR
-tar xf linux-5.19.2.tar.xz
-cd linux-5.19.2
+cd $INSTALL_DIR
+tar xf linux-6.0.11.tar.xz
+cd linux-6.0.11
 
 make headers
 find usr/include -type f ! -name '*.h' -delete
-cp -rv usr/include $LSF/usr
+cp -rv usr/include $LFS/usr
