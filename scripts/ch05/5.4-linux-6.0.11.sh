@@ -13,3 +13,6 @@ cd linux-6.0.11
 make headers
 find usr/include -type f ! -name '*.h' -delete
 cp -rv usr/include $LFS/usr
+
+cd $INSTALL_DIR
+rm -rf linux-6.0.11

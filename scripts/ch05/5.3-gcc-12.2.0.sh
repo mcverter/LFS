@@ -29,3 +29,6 @@ cd build
 ../configure --prefix=$LFS/tools --with-sysroot=$LFS --with-glibc-version=2.36 --target=$LFS_TGT --with-newlib  --without-headers --enable-default-pie --enable-default-ssp --disable-nls  --disable-shared --disable-multilib --disable-threads --disable-libatomic --disable-libgomp --disable-libquadmath --disable-libssp --disable-libvtv  --disable-libstdcxx --enable-languages=c,c++
 make
 make install
+
+cd $SOURCES_DIR
+rm -rf gcc-12.2.0
