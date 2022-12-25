@@ -1,5 +1,5 @@
-bash -xv $HOME/LFS/scripts/ch00/lfs_user_login.sh
-cd $LFS_SOURCES_DIR || exit 1
+bash -xv $HOME/LFS/scripts/ch00/lfs_user_login.sh || exit 1
+cd /mnt/lfs/sources
 
 tar xf patch-2.7.6.tar.gz
 cd patch-2.7.6
