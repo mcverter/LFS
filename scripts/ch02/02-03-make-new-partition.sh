@@ -1,6 +1,6 @@
 #!/usr/bin/dash
 
-# PARTITION_LABEL=""
+# PARTITION_LABEL="sda2"
 if [[ -z $PARTITION_LABEL ]] ; then
     echo "No partition label $PARTITION_LABEL"
     exit 1

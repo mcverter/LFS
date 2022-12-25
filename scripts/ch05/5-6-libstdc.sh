@@ -19,4 +19,5 @@ cd build
 make
 make  install
 
+rm -rf gcc-12.2.0
 rm -v $LFS/usr/lib/lib{stdc++,stdc++fs,supc++}.la
