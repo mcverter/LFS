@@ -1,4 +1,5 @@
-bash -xv $HOME/LFS/scripts/ch00/lfs_sources_dir.sh || exit 1
+bash -xv $HOME/LFS/scripts/ch00/lfs_user_login.sh
+cd $LFS_SOURCES_DIR || exit 1
 
 tar xf findutils-4.9.0.tar.gz
 cd findutils-4.9.0

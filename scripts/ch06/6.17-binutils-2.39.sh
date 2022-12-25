@@ -1,4 +1,5 @@
-bash -xv $HOME/LFS/scripts/ch00/lfs_sources_dir.sh || exit 1
+bash -xv $HOME/LFS/scripts/ch00/lfs_user_login.sh
+cd $LFS_SOURCES_DIR || exit 1
 
 tar xf binutils-2.39.tar.gz
 cd binutils-2.39.tar.gz
