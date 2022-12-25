@@ -1,8 +1,3 @@
-bash -xv $HOME/LFS/scripts/ch00/lfs_user_login.sh || exit 1
-cd /mnt/lfs/sources
-
-tar xf gcc-12.2.0.tar.gz
-cd gcc-12.2.0
 tar -xf ../mpfr-4.1.1.tar.xz
 mv -v mpfr-4.1.1 mpfr
 tar -xf ../gmp-6.2.1.tar.xz

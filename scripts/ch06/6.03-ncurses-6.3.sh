@@ -1,9 +1,3 @@
-bash -xv $HOME/LFS/scripts/ch00/lfs_user_login.sh || exit 1
-cd /mnt/lfs/sources 
-
-tar xf ncurses-6.3.tar.gz
-cd ncurses-6.3
-
 sed -i s/mawk// configure
 
 mkdir build

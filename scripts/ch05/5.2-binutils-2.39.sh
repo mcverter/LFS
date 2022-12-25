@@ -1,16 +1,3 @@
-SOURCES_DIR=$LFS/sources
-who=`whoami`
-echo $who
-if [ "$who" != "lfs" ] ; then
-    echo "must be user lfs"
-    exit 1
-fi
-echo "what"
-
-#binutils
-cd $SOURCES_DIR
-tar xf binutils-2.39.tar.xz
-cd binutils-2.39
 if [ ! -d build ]; then 
     mkdir -v build
 fi
@@ -21,4 +8,3 @@ echo PWS `pwd`
 
 make
 make install
-

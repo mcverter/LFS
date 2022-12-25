@@ -1,9 +1,3 @@
-bash -xv $HOME/LFS/scripts/ch00/lfs_user_login.sh || exit 1
-cd /mnt/lfs/sources
-
-tar xf coreutils-9.1.tar.gz
-cd coreutils-9.1
-
 ../configure --prefix=/usr --host=$LFS_TGT --build=$(build-aux/config.guess) --enable-install-program=hostname --enable-no-install-program=kill,uptime
 
 make

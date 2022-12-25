@@ -6,3 +6,15 @@ if [ $WHO != "lfs" ] ; then
     exit 1
 fi
 
+if [ -z $LFS ]; then 
+    echo "LFS variable is not set"
+    echo "Exiting ..."
+    exit 1
+
+fi 
+
+if [ -z $LFS_SOURCES_DIR ]; then 
+    echo "LFS_SOURCES_DIR variable is not set"
+    echo "Exiting ..."
+    exit 1
+fi 

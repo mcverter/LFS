@@ -1,15 +1,3 @@
-WHO=`whoami`
-
-if [ $WHO != "lfs" ] ; then
-    echo "Must be LFS user" 
-    exit 1
-fi
-INSTALL_DIR=$LFS/sources
-cd $INSTALL_DIR
-
-tar xf glibc-2.36.tar.gz
-cd glibc-2.36
-
 case $(uname -m) in
     i?86) ln -sfv ld-linux.so.3
 	  ;;
@@ -39,6 +27,3 @@ readelf -l a.out | grep ld-linux
 rm -v a.out
 
 $LFS/tools/libexec/gcc/$LFS_TGT/12.2.0/install-tools/mkheaders
-
-cd $INSTALL_DIR
-rm -rf glibc-2.36

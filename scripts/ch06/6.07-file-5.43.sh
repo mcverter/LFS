@@ -1,8 +1,3 @@
-bash -xv $HOME/LFS/scripts/ch00/lfs_user_login.sh || exit 1
-cd /mnt/lfs/sources
-
-tar xf file-5.43.tar.gz
-cd file-5.43
 mkdir build
 pushd build
   ../configure --disable-bzlib --disable-libseccomp --disable-xzlib --disable-zlib
