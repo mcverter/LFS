@@ -1,4 +1,4 @@
-bash -xv $HOME/scripts/ch00/lfs_sources_dir.sh || exit 1
+bash -xv $HOME/LFS/scripts/ch00/lfs_sources_dir.sh || exit 1
 tar xf gawk-5.2.1.tar.gz
 cd gawk-5.2.1
 
