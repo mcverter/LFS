@@ -3,7 +3,7 @@ sed '6009s/$add_dir//' -i ltmain.sh
 mkdir -v build
 cd build
 
-../configure --prefix=/usr --host=$LFS_TGT --build=(../config.guess) --disable-nls --enable-shared --enable-gprofng=no --disable-werror --enable-64-bit-bfd
+../configure --prefix=/usr --host=$LFS_TGT --build=$(../config.guess) --disable-nls --enable-shared --enable-gprofng=no --disable-werror --enable-64-bit-bfd
 make
 make DESTDIR=$LFS install
 
