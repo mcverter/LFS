@@ -10,9 +10,11 @@ case $(uname -m) in
         -i.orig gcc/config/i386/t-linux64
  ;;
 esac
-
 mkdir -v build
 cd build
 ../configure --prefix=$LFS/tools --with-sysroot=$LFS --with-glibc-version=2.36 --target=$LFS_TGT --with-newlib  --without-headers --enable-default-pie --enable-default-ssp --disable-nls  --disable-shared --disable-multilib --disable-threads --disable-libatomic --disable-libgomp --disable-libquadmath --disable-libssp --disable-libvtv  --disable-libstdcxx --enable-languages=c,c++
 make
 make install
+
+cd ..
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h >   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
