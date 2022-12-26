@@ -6,9 +6,9 @@ case $(uname -m) in
     ;;
 esac
 
-#sed '/MAKEFLAGS :=/s/)r/) -r/' -i Makerules
+sed '/MAKEFLAGS :=/s/)r/) -r/' -i Makerules
 
-# patch -Np1 -i ../glibc-2.36-fhs-1.patch
+patch -Np1 -i ../glibc-2.36-fhs-1.patch
 
 mkdir -v build
 cd build
@@ -23,7 +23,7 @@ make DESTDIR=$LFS install
 
 sed '/RTLDLIST=/s@/usr@@g' -i $LFS/usr/bin/ldd
 
-echo "int main(){}" | gcc -xc -
+echo "int main(){}" | $LFS_TGT-gcc -xc -
 readelf -l a.out | grep ld-linux
 
 rm -v a.out
