@@ -1,5 +1,5 @@
-tar -xf ../mpfr-4.1.0.tar.xz
-mv -v mpfr-4.1.0 mpfr
+tar -xf ../mpfr-4.1.1.tar.xz
+mv -v mpfr-4.1.1 mpfr
 tar -xf ../gmp-6.2.1.tar.xz
 mv -v gmp-6.2.1 gmp
 tar -xf ../mpc-1.2.1.tar.gz
@@ -13,11 +13,32 @@ case $(uname -m) in
 esac
 
 mkdir -v build
-cd build
+cd       build
 
-../configure  --target=$LFS_TGT  --prefix=$LFS/tools       --with-glibc-version=2.36 --with-sysroot=$LFS       --with-newlib             --without-headers         --disable-nls             --disable-shared          --disable-multilib        --disable-decimal-float   --disable-threads         --disable-libatomic       --disable-libgomp         --disable-libquadmath     --disable-libssp          --disable-libvtv          --disable-libstdcxx       --enable-languages=c,c++
+../configure                  \
+    --target=$LFS_TGT         \
+    --prefix=$LFS/tools       \
+    --with-glibc-version=2.36 \
+    --with-sysroot=$LFS       \
+    --with-newlib             \
+    --without-headers         \
+    --enable-default-pie      \
+    --enable-default-ssp      \
+    --disable-nls             \
+    --disable-shared          \
+    --disable-multilib        \
+    --disable-threads         \
+    --disable-libatomic       \
+    --disable-libgomp         \
+    --disable-libquadmath     \
+    --disable-libssp          \
+    --disable-libvtv          \
+    --disable-libstdcxx       \
+    --enable-languages=c,c++
+
 make
 make install
 
 cd ..
-cat gcc/limitx.h gcc/glimits.h gcc/limity.h >   `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
+cat gcc/limitx.h gcc/glimits.h gcc/limity.h > \
+  `dirname $($LFS_TGT-gcc -print-libgcc-file-name)`/install-tools/include/limits.h
